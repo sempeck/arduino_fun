@@ -31,7 +31,7 @@ void getAnswer() {
 		delay(5);
 	}
 	Serial.print("Wpisana liczba: ");
-	Serial.println(answer);
+	Serial.println(answer);                    
 }
 
 void checkAnswer() {
