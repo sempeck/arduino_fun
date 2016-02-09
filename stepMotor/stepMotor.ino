@@ -1,5 +1,8 @@
 #include <Stepper.h>
 
+#define LEWY 2
+#define PRAWY 1
+
 int in1Pin = 8;
 int in2Pin = 10; // change of pin order
 int in3Pin = 9;
@@ -15,18 +18,22 @@ void setup()
     pinMode(in3Pin, OUTPUT);
     pinMode(in4Pin, OUTPUT);
 
+    pinMode(1,INPUT);
+    pinMode(2,INPUT);
+
     motor.setSpeed(25);
 }
 
-void loop()
-{
-    int steps = 360;
-    motor.step(steps);
-    Serial.println(steps);
-    delay(100);
+void loop() {
+	motor.step(0);
 
-    steps = -360;
+	while (digitalRead(LEWY) == HIGH) {
+    int steps = 90;
     motor.step(steps);
-        Serial.println(steps);
-    delay(500);
+	}
+
+	// while (digitalRead(PRAWY) == HIGH) {
+ //    int steps = -90;
+ //    motor.step(steps);
+	// }	
 }
