@@ -27,10 +27,10 @@ void setup()
 void loop() {
 	motor.step(0);
 
-	while (digitalRead(LEWY) == HIGH) {
-    int steps = 90;
+	//while (digitalRead(LEWY) == HIGH) {
+    int steps = -90;
     motor.step(steps);
-	}
+	//}
 
 	// while (digitalRead(PRAWY) == HIGH) {
  //    int steps = -90;

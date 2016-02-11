@@ -7,7 +7,7 @@ var range = [0, 170];
 
   // Servo to control panning
   var pan = new five.Servo({
-   pin: 10,
+   pin: 12,
     range: range,
     center: true
   });
