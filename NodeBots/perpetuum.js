@@ -3,7 +3,7 @@ var board = new five.Board();
 
 board.on("ready", function() {
 
-var range = [0, 170];
+var range = [20, 80];
 
   var pan = new five.Servo({
    pin: 12,
@@ -25,8 +25,8 @@ var range = [0, 170];
   joystick.on("change", function() {
     pan.to(five.Fn.scale(this.y, -1, 1, 0, 170));
 
-// console.log('y: ' + this.y);
-// console.log('x: ' + this.x);
+console.log('y: ' + this.y);
+console.log('x: ' + this.x);
 
 var go = 0;
 
@@ -34,12 +34,12 @@ stepper.rpm(go).cw().step(2000);
 
   if (this.x < -0.5) {
     go = 180;  
-    stepper.rpm(go).ccw().step(2000);   
+    stepper.rpm(go).cw().step(2000);   
    }
 
    if (this.x > 0.5) {
     go = 180;
-     stepper.rpm(go).cw().step(2000);
+     stepper.rpm(go).ccw().step(2000);
    }
 
   });
